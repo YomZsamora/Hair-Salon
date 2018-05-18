@@ -2,7 +2,7 @@
 A Hair Salon java application that basically manages a stylist's details together with their respective clients.
 
 ## Getting Started
-This App generally manages the basic operations of a hair salon. The owner should be able to add a list of the stylists, and for each stylist, add clients who see that stylist. The stylists work independently, so each client only belongs to a single stylist.
+This application generally manages the basic operations of a hair salon. The owner should be able to add a list of the stylists, and for each stylist, add clients who see that stylist. The stylists work independently, so each client only belongs to a single stylist.
 
 ##### Technologies Used
 - Java
