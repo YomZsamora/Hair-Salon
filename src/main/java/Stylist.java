@@ -50,6 +50,16 @@ public int getStylistId() {
    return id;
 }
 
+public static Stylist find(int id) {
+   try(Connection con = DB.sql2o.open()) {
+      String sql = "SELECT * FROM stylists where id=:id";
+      Stylist stylist = con.createQuery(sql)
+      .addParameter("id", id)
+      .executeAndFetchFirst(Stylist.class);
+      return stylist;
+   }
+}
+
 public static List<Stylist> all() {
    String sql = "SELECT id, first_name, last_name, age, phone_no, department FROM stylists";
       try(Connection con = DB.sql2o.open()) {
@@ -79,5 +89,4 @@ public void delete() {
       .executeUpdate();
    }
 }
-
 }
