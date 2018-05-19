@@ -91,7 +91,7 @@ public static List<Stylist> all() {
 
 public void save() {
    try(Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO stylists(first_name, last_name, age, phone_no, department) VALUES (:stylistFirstName, :stylistLastName, :stylistAge, :stylistPhone, :stylistDept)";
+      String sql = "INSERT INTO stylists(first_name, last_name, age, phone_no, department) VALUES (:first_name, :last_name, :age, :phone_no, :department)";
       this.id = (int) con.createQuery(sql, true)
       .addParameter("first_name", this.first_name)
       .addParameter("last_name", this.last_name)
