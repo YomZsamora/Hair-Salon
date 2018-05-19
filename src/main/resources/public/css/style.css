@@ -28,8 +28,13 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0px;
 }
 
-.stylist-details h3 {
+.stylist-details h3, .client-details h3 {
     margin-bottom: 0;
+}
+
+.client-details .alert p, .client-details .alert p a {
+    font-size: 11px;
+    cursor: pointer;
 }
 
 .intro p {
