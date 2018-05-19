@@ -1,21 +1,35 @@
 
 
 body {
-    font-family: 'latoregular', sans-serif !important;
-    color: #333;
+    font-family: 'Open Sans',serif;
+    padding-top: 54px;
+    padding-left: 54px;
+    color: #495057;
 }
 
-h1 {
-    font-size: 36px;
-    color: #636e7b;
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Saira Extra Condensed',serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #343a40;
 }
 
-h3 {
-    font-size: 24px;
+.intro h1 {
+    font-size: 15rem;
 }
 
-.exist .heroes h3, .exist .squads h3 {
-    color: #1CAF9A;
+.stylists h1 {
+    font-size: 40px;
+    margin-bottom: 0;
+}
+
+.stylists h3 {
+    font-size: 30px;
+    margin-bottom: 0px;
+}
+
+.intro p {
+    font-size: 25px;
 }
 
 .btn-default {
@@ -73,23 +87,17 @@ h3 {
     margin-top: 40px;
 }
 
-
-
-p.intro {
-    font-size: 13px;
-}
-p.label {
-    color:333 !important;
-}
-
 .btn-xs {
     padding: 2px 10px;
 }
 
-.exist-link a {
-    font-size: 12px;
-    color: #1CAF9A;
+.add-stylist-form .label {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-family: 'Saira Extra Condensed',serif;
+    font-size: 20px;
 }
+
 
 .footer {
     position: fixed; 
@@ -103,55 +111,4 @@ p.label {
     font-size: 11px;
     margin-bottom: 0px;
     padding: 5px 0px 5px 0px;
-}
-
-.panel-header {
-    color: #1CAF9A;
-    font-size: 12px;
-}
-
-.heroes ul, .squads ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.heroes ul li:first-child, .squads ul li:first-child {
-    border-top: 0;
-}
-.heroes ul li {
-    padding: 15px;
-    border-top: 1px solid #eee;
-    background-color: #fff;
-}
-
-.squads ul li {
-    padding: 5px;
-    border-top: 1px solid #eee;
-    background-color: #fff;
-}
-
-.heroes ul li small, .squads ul li small {
-    line-height: normal;
-}
-
-.heroes .hero-name, .squads .squad-name {
-    font-size: 13px;
-    color: #333;
-    margin: 0;
-    font-family: 'latobold';
-    line-height: normal;
-}
-
-.heroes ul li small, .squads ul li small {
-    line-height: normal;
-}
-
-.alert.alert-success {
-    font-size:20px;
-    text-align: center;
-}
-
-.squads a, .squad-display a {
-    color:#1CAF9A;
 }

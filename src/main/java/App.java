@@ -24,5 +24,17 @@ public class App {
       	model.put("template", "templates/index.vtl");
       	return new ModelAndView(model, layout);
     	}, new VelocityTemplateEngine());
+
+      get("/stylists", (request, response) -> {
+         Map<String, Object> model = new HashMap<String, Object>();
+         model.put("template", "templates/stylists.vtl");
+         return new ModelAndView(model, layout);
+      }, new VelocityTemplateEngine());
+
+      get("/addStylist", (request, response) -> {
+         Map<String, Object> model = new HashMap<String, Object>();
+         model.put("template", "templates/addStylist.vtl");
+         return new ModelAndView(model, layout);
+      }, new VelocityTemplateEngine());
   	}
 }
