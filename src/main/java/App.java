@@ -68,8 +68,10 @@ public class App {
          return new ModelAndView(model, layout);
       }, new VelocityTemplateEngine());
 
-      get("/updateStylist", (request, response) -> {
+      get("/updateStylist/:id", (request, response) -> {
          Map<String, Object> model = new HashMap<String, Object>();
+         Stylist stylist = Stylist.find(Integer.parseInt(request.params(":id")));
+         model.put("stylist", stylist);
          model.put("template", "templates/updateStylist.vtl");
          return new ModelAndView(model, layout);
       }, new VelocityTemplateEngine());
