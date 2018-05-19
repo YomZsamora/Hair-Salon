@@ -37,6 +37,15 @@ public class App {
          return new ModelAndView(model, layout);
       }, new VelocityTemplateEngine());
 
+      post("/addStylist", (request, response) -> {
+         Map<String, Object> model = new HashMap<String, Object>();
+         String name = request.queryParams("name");
+         Category newCategory = new Category(name);
+         newCategory.save();
+         model.put("template", "templates/category-success.vtl");
+         return new ModelAndView(model, layout);
+      }, new VelocityTemplateEngine());
+
       get("/deleteStylist", (request, response) -> {
          Map<String, Object> model = new HashMap<String, Object>();
          model.put("template", "templates/deleteStylist.vtl");

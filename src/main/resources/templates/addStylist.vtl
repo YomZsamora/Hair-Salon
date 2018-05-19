@@ -3,26 +3,26 @@
     <small><a href="/"><i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;&nbsp;Go Back Home</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/stylists"><i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;&nbsp;Back to Stylists</a></small>
 	<hr>
 	<div class="add-stylist-form">
-		<form>
+		<form action="/addStylist" method="post">
 			<div class="form-group mb15">
               	<label class="label">First Name</label>
-               	<input type="text" placeholder="Stylist's First Name" class="form-control" />
+               	<input type="text" name="stylistFirstName" placeholder="Stylist's First Name" class="form-control" />
             </div>
 			<div class="form-group mb15">
               	<label class="label">Last Name</label>
-               	<input type="text" placeholder="Stylist's Last Name" class="form-control" />
+               	<input type="text" name="stylistLastName" placeholder="Stylist's Last Name" class="form-control" />
             </div>
 			<div class="form-group mb15">
               	<label class="label">Age</label>
-               	<input type="number" placeholder="Stylist's Age" class="form-control" />
+               	<input type="number" name="stylistAge" placeholder="Stylist's Age" class="form-control" />
             </div>            
 			<div class="form-group mb15">
               	<label class="label">Phone No.</label>
-               	<input type="text" placeholder="Stylist's Mobile Number" class="form-control" />
+               	<input type="text" name="stylistPhone" placeholder="Stylist's Mobile Number" class="form-control" />
             </div>           
 			<div class="form-group mb15">
               	<label class="label">Department</label>
-               	<select data-placeholder="Stylist's Dept." class="form-control">
+               	<select data-placeholder="Stylist's Dept." class="form-control" name="stylistDept">
                 	<option label="- Stylist's Dept. -"></option>
 	                <option value="Hair Styling">Hair Styling</option>
 	                <option value="Hair Coloring">Hair Coloring</option>
@@ -32,7 +32,7 @@
 	            </select>
             </div>
             <button type="submit" class="btn btn-primary btn-xs"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;&nbsp;Add Stylist</button>
-            <button class="btn btn-default btn-xs"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;&nbsp;Cancel</button>			
+            <button class="btn btn-default btn-xs"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;&nbsp;Cancel</button>		
 		</form>	
 	</div>
 </div>
