@@ -57,38 +57,6 @@ public static List<Stylist> all() {
    }
 }
 
-// public static Stylist find(int id) {
-// }
-
-  // public String getName() {
-  //   return name;
-  // }
-
-  
-
-  // public int getId() {
-  //   return id;
-  // }
-
-  // public List<Task> getTasks() {
-  //   try(Connection con = DB.sql2o.open()) {
-  //     String sql = "SELECT * FROM tasks where categoryId=:id";
-  //     return con.createQuery(sql)
-  //     .addParameter("id", this.id)
-  //     .executeAndFetch(Task.class);
-  //   }
-  // }
-
-  // public static Category find(int id) {
-  //   try(Connection con = DB.sql2o.open()) {
-  //     String sql = "SELECT * FROM categories where id=:id";
-  //     Category category = con.createQuery(sql)
-  //     .addParameter("id", id)
-  //     .executeAndFetchFirst(Category.class);
-  //     return category;
-  //   }
-  // }
-
 public void save() {
    try(Connection con = DB.sql2o.open()) {
       String sql = "INSERT INTO stylists(first_name, last_name, age, phone_no, department) VALUES (:first_name, :last_name, :age, :phone_no, :department)";
@@ -103,15 +71,13 @@ public void save() {
    }
 }
 
-  // @Override
-  // public boolean equals(Object otherCategory) {
-  //   if (!(otherCategory instanceof Category)) {
-  //     return false;
-  //   } else {
-  //     Category newCategory = (Category) otherCategory;
-  //     return this.getName().equals(newCategory.getName()) &&
-  //     this.getId() == newCategory.getId();
-  //   }
-  // }
+public void delete() {
+   try(Connection con = DB.sql2o.open()) {
+   String sql = "DELETE FROM stylists WHERE id = :id;";
+   con.createQuery(sql)
+      .addParameter("id", id)
+      .executeUpdate();
+   }
+}
 
 }
