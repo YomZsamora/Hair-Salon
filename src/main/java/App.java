@@ -42,5 +42,11 @@ public class App {
          model.put("template", "templates/deleteStylist.vtl");
          return new ModelAndView(model, layout);
       }, new VelocityTemplateEngine());
+
+      get("/updateStylist", (request, response) -> {
+         Map<String, Object> model = new HashMap<String, Object>();
+         model.put("template", "templates/updateStylist.vtl");
+         return new ModelAndView(model, layout);
+      }, new VelocityTemplateEngine());
   	}
 }
