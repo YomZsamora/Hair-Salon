@@ -96,6 +96,13 @@ h1, h2, h3, h4, h5, h6 {
     border-color: #bd5d38 !important;
 }
 
+.stylist-list h3 small {
+    font-family: 'Saira Extra Condensed',serif !important;
+    text-transform: uppercase !important;
+    color: #343a40 !important;
+    font-size: 20px !important
+}
+
 .add-stylist-form .label {
     text-transform: uppercase;
     font-weight: 500;
