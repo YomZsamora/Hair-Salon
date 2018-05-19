@@ -54,5 +54,11 @@ public class App {
          model.put("template", "templates/addClient.vtl");
          return new ModelAndView(model, layout);
       }, new VelocityTemplateEngine());
+
+      get("/viewClients", (request, response) -> {
+         Map<String, Object> model = new HashMap<String, Object>();
+         model.put("template", "templates/viewClients.vtl");
+         return new ModelAndView(model, layout);
+      }, new VelocityTemplateEngine());
   	}
 }
