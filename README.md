@@ -19,7 +19,7 @@ This application generally manages the basic operations of a hair salon. The own
 - Clone this repository to a location in your file system.
 - Database Setup: (Remember to recreate the database, tables and columns accordingly).
 	- In PSQL:
-		- CREATE DATABASE hair-salon;
+		- CREATE DATABASE hair_salon;
 		- CREATE TABLE stylists (id serial PRIMARY KEY, first_name varchar, last_name varchar, age integer, phone_no varchar, department varchar);
 		- CREATE TABLE clients (id serial PRIMARY KEY, client_first_name varchar, client_last_name varchar, client_phone_no varchar);
 		- ALTER TABLE clients ADD stylistId int;

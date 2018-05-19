@@ -27,6 +27,7 @@ public class App {
 
       get("/stylists", (request, response) -> {
          Map<String, Object> model = new HashMap<String, Object>();
+         model.put("stylists", Stylist.all());
          model.put("template", "templates/stylists.vtl");
          return new ModelAndView(model, layout);
       }, new VelocityTemplateEngine());
@@ -39,10 +40,14 @@ public class App {
 
       post("/addStylist", (request, response) -> {
          Map<String, Object> model = new HashMap<String, Object>();
-         String name = request.queryParams("name");
-         Category newCategory = new Category(name);
-         newCategory.save();
-         model.put("template", "templates/category-success.vtl");
+         String stylistFirstName = request.queryParams("stylistFirstName");
+         String stylistLastName = request.queryParams("stylistLastName");
+         int stylistAge = Integer.parseInt(request.queryParams("stylistAge"));
+         String stylistPhone = request.queryParams("stylistPhone");
+         String stylistDept = request.queryParams("stylistDept");
+         Stylist newStylist = new Stylist(stylistFirstName, stylistLastName, stylistAge, stylistPhone, stylistDept);
+         newStylist.save();
+         model.put("template", "templates/addStylist.vtl");
          return new ModelAndView(model, layout);
       }, new VelocityTemplateEngine());
 
