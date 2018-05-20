@@ -81,9 +81,10 @@ public class App {
          Stylist stylist = Stylist.find(Integer.parseInt(request.params(":id")));
          String first_name = request.queryParams("stylistFirstName");
          String last_name = request.queryParams("stylistLastName");
+         int age = Integer.parseInt(request.queryParams("stylistAge"));
          String phone_no = request.queryParams("stylistPhone");
          String department = request.queryParams("stylistDept");
-         stylist.update(first_name,last_name,phone_no,department);
+         stylist.update(first_name,last_name,age,phone_no,department);
          String url = String.format("/updateStylist/%d", stylist.getStylistId());
          response.redirect(url);
          return new ModelAndView(model, layout);

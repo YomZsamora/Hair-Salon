@@ -21,12 +21,8 @@ jQuery(document).ready(function() {
       $('#updateClientForm').hide();
    });
 
-   $("form[name='addStylist']").validate({
-      // Specify validation rules
+   $("form[name='updateStylist']").validate({
       rules: {
-         // The key name on the left side is the name attribute
-         // of an input field. Validation rules are defined
-         // on the right side
          stylistFirstName: "required",
          stylistLastName: "required",
          stylistAge: {
@@ -36,23 +32,46 @@ jQuery(document).ready(function() {
          stylistPhone: "required",
          stylistDept: "required"
       },
-      // Specify validation error messages
+
       messages: {
          stylistFirstName: "Please update stylist's first name.",
          stylistLastName: "Please update stylist's last name.",
          stylistAge: {
             required: "Please update stylist's age.",
-            number: "Please Enter a Valid Number."
+            number: "Please enter a valid number."
          },
          stylistPhone: "Please update stylist's phone number.",
-         stylistDept: "Please update stylist's departmant."
+         stylistDept: "Please update stylist's department."
       },
-      // Make sure the form is submitted to the destination defined
-      // in the "action" attribute of the form when valid
       submitHandler: function(form) {
-      form.submit();
-    }
-  });
+         form.submit();
+      }
+   });
 
+   $("form[name='addStylist']").validate({
+      rules: {
+         stylistFirstName: "required",
+         stylistLastName: "required",
+         stylistAge: {
+            required: true,
+            number: true
+         },
+         stylistPhone: "required",
+         stylistDept: "required"
+      },
 
+      messages: {
+         stylistFirstName: "Stylist's first name is required.",
+         stylistLastName: "Stylist's last name is required.",
+         stylistAge: {
+            required: "Stylist's age is required.",
+            number: "Please enter a valid number."
+         },
+         stylistPhone: "Stylist's phone number is required.",
+         stylistDept: "Stylist's department is required."
+      },
+      submitHandler: function(form) {
+         form.submit();
+      }
+   });
 });

@@ -3,7 +3,7 @@
     <small><a href="/"><i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;&nbsp;Go Back Home</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/stylists"><i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;&nbsp;Back to Stylists</a></small>
 	<hr>
 	<div class="add-stylist-form">
-		<form action="/addStylist" method="post">
+		<form action="/addStylist" method="post" name="addStylist">
 			<div class="form-group mb15">
               	<label class="label">First Name</label>
                	<input type="text" name="stylistFirstName" placeholder="Stylist's First Name" class="form-control" />
@@ -32,7 +32,7 @@
 	            </select>
             </div>
             <button type="submit" class="btn btn-primary btn-xs"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;&nbsp;Add Stylist</button>
-            <button class="btn btn-default btn-xs"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;&nbsp;Cancel</button>		
+            <button type="reset" class="btn btn-default btn-xs"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;&nbsp;Cancel</button>		
 		</form>	
 	</div>
 </div>

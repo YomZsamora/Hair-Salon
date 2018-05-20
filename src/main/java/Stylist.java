@@ -81,12 +81,13 @@ public class Stylist {
       }
    }
 
-   public void update(String first_name, String last_name, String phone_no, String department) {
+   public void update(String first_name, String last_name, int age, String phone_no, String department) {
       try(Connection con = DB.sql2o.open()) {
-         String sql = "UPDATE stylists SET first_name = :first_name, last_name = :last_name, phone_no = :phone_no, department = :department  WHERE id = :id";
+         String sql = "UPDATE stylists SET first_name = :first_name, last_name = :last_name, age = :age, phone_no = :phone_no, department = :department  WHERE id = :id";
          con.createQuery(sql)
          .addParameter("first_name", first_name)
          .addParameter("last_name", last_name)
+         .addParameter("age", age)
          .addParameter("phone_no", phone_no)
          .addParameter("department", department)
          .addParameter("id", id)
