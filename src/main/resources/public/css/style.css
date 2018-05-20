@@ -113,6 +113,10 @@ label.error {
     font-size: 12px;
 }
 
+.alert.post-success {
+    font-size: 20px;
+}
+
 .btn-primary:hover {
     background-color: #bd5d38 !important;
     border-color: #bd5d38 !important;

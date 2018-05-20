@@ -47,7 +47,7 @@ public class App {
          String stylistDept = request.queryParams("stylistDept");
          Stylist newStylist = new Stylist(stylistFirstName, stylistLastName, stylistAge, stylistPhone, stylistDept);
          newStylist.save();
-         model.put("template", "templates/addStylist.vtl");
+         model.put("template", "templates/addStylistSuccess.vtl");
          return new ModelAndView(model, layout);
       }, new VelocityTemplateEngine());
 
@@ -64,7 +64,7 @@ public class App {
          Stylist stylist = Stylist.find(Integer.parseInt(request.params("id")));
          stylist.delete();
          model.put("stylists", Stylist.all());
-         model.put("template", "templates/stylists.vtl");
+         model.put("template", "templates/deleteStylistSuccess.vtl");
          return new ModelAndView(model, layout);
       }, new VelocityTemplateEngine());
 
@@ -85,8 +85,9 @@ public class App {
          String phone_no = request.queryParams("stylistPhone");
          String department = request.queryParams("stylistDept");
          stylist.update(first_name,last_name,age,phone_no,department);
-         String url = String.format("/updateStylist/%d", stylist.getStylistId());
-         response.redirect(url);
+         // String url = String.format("/updateStylist/%d", stylist.getStylistId());
+         // response.redirect(url);
+         model.put("template", "templates/updateStylistSuccess.vtl");
          return new ModelAndView(model, layout);
       }, new VelocityTemplateEngine());
 
@@ -106,8 +107,7 @@ public class App {
          String clientPhoneNo = request.queryParams("clientPhoneNo");
          Client newClient = new Client(clientFirstName, clientLastName, clientPhoneNo, stylist.getStylistId());
          newClient.save();
-         model.put("stylist", stylist);
-         model.put("template", "templates/addClient.vtl");
+         model.put("template", "templates/addClientSuccess.vtl");
          return new ModelAndView(model, layout);
       }, new VelocityTemplateEngine());
 
@@ -134,8 +134,9 @@ public class App {
          String client_last_name = request.queryParams("clientLastName");
          String client_phone_no = request.queryParams("clientPhoneNo");
          client.update(client_first_name,client_last_name,client_phone_no);
-         String url = String.format("/updateClient/%d", client.getClientId());
-         response.redirect(url);
+         // String url = String.format("/updateClient/%d", client.getClientId());
+         // response.redirect(url);
+         model.put("template", "templates/updateClientSuccess.vtl");
          return new ModelAndView(model, layout);
       }, new VelocityTemplateEngine());
 
@@ -151,7 +152,7 @@ public class App {
          HashMap<String, Object> model = new HashMap<String, Object>();
          Client client = Client.find(Integer.parseInt(request.params("id")));
          client.delete();
-         model.put("template", "templates/index.vtl");
+         model.put("template", "templates/deleteClientSuccess.vtl");
          return new ModelAndView(model, layout);
       }, new VelocityTemplateEngine());
   	}
