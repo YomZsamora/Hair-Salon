@@ -50,6 +50,15 @@ public class Stylist {
       return id;
    }
 
+   public List<Client> getStylistClients() {
+      try(Connection con = DB.sql2o.open()) {
+         String sql = "SELECT * FROM clients where stylistid=:id";
+         return con.createQuery(sql)
+         .addParameter("id", this.id)
+         .executeAndFetch(Client.class);
+      }
+   }
+
    public static Stylist find(int id) {
       try(Connection con = DB.sql2o.open()) {
          String sql = "SELECT * FROM stylists where id=:id";

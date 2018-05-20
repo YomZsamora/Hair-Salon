@@ -74,4 +74,21 @@ jQuery(document).ready(function() {
          form.submit();
       }
    });
+
+   $("form[name='addClient']").validate({
+      rules: {
+         clientFirstName: "required",
+         clientLastName: "required",
+         clientPhoneNo: "required"
+      },
+
+      messages: {
+         clientFirstName: "Client's first name is required.",
+         clientLastName: "Client's last name is required.",
+         clientPhoneNo: "Client's phone number is required."
+      },
+      submitHandler: function(form) {
+         form.submit();
+      }
+   });
 });
