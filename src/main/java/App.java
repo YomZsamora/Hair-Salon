@@ -138,5 +138,21 @@ public class App {
          response.redirect(url);
          return new ModelAndView(model, layout);
       }, new VelocityTemplateEngine());
+
+      get("/deleteClient/:id", (request, response) -> {
+         Map<String, Object> model = new HashMap<String, Object>();
+         Client client = Client.find(Integer.parseInt(request.params(":id")));
+         model.put("client", client);
+         model.put("template", "templates/deleteClient.vtl");
+         return new ModelAndView(model, layout);
+      }, new VelocityTemplateEngine());
+
+      post("/deleteClient/:id", (request, response) -> {
+         HashMap<String, Object> model = new HashMap<String, Object>();
+         Client client = Client.find(Integer.parseInt(request.params("id")));
+         client.delete();
+         model.put("template", "templates/index.vtl");
+         return new ModelAndView(model, layout);
+      }, new VelocityTemplateEngine());
   	}
 }

@@ -109,6 +109,10 @@ label.error {
     padding: 2px 10px;
 }
 
+.alert p {
+    font-size: 12px;
+}
+
 .btn-primary:hover {
     background-color: #bd5d38 !important;
     border-color: #bd5d38 !important;
