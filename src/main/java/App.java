@@ -118,5 +118,13 @@ public class App {
          model.put("template", "templates/viewClients.vtl");
          return new ModelAndView(model, layout);
       }, new VelocityTemplateEngine());
+
+      get("/updateClient/:id", (request, response) -> {
+         Map<String, Object> model = new HashMap<String, Object>();
+         Client client = Client.find(Integer.parseInt(request.params(":id")));
+         model.put("client", client);
+         model.put("template", "templates/updateClient.vtl");
+         return new ModelAndView(model, layout);
+      }, new VelocityTemplateEngine());
   	}
 }

@@ -9,7 +9,7 @@
          <div class="client-details mb40">
             <h3>$client.getClientLastName(), $client.getClientFirstName()</h3>
             <small>Phone: <span class="text-primary">$client.getClientPhoneNo()</span> | No. of Visits: <span class="text-primary">5</span></small><br>
-            <small><a id="toggleUpdateClient"><i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;&nbsp;Update This Client Details</a>&nbsp;&nbsp;&nbsp;&nbsp;<a id="toggleDeleteClient"><i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;&nbsp;Remove This Client</a></small> 
+            <small><a href="/updateClient/$client.getClientId()"><i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;&nbsp;Update This Client Details</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/deleteClient/$client.getClientId()"><i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;&nbsp;Remove This Client</a></small> 
             <!-- <div id="deleteClientAlert" class="alert alert-danger fade in nomargin">
                <p>Are you sure you want to remove <strong>client's first name, client's last name</strong> ?</p>
                <p>

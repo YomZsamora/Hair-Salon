@@ -44,6 +44,16 @@ public class Client {
       return id;
    }
 
+   public static Client find(int id) {
+      try(Connection con = DB.sql2o.open()) {
+         String sql = "SELECT * FROM clients where id=:id";
+         Client client = con.createQuery(sql)
+         .addParameter("id", id)
+         .executeAndFetchFirst(Client.class);
+         return client;
+      }
+   }
+
    public void save() {
       try(Connection con = DB.sql2o.open()) {
          String sql = "INSERT INTO clients(client_first_name, client_last_name, client_phone_no, stylistid) VALUES (:client_first_name, :client_last_name, :client_phone_no, :stylistid)";

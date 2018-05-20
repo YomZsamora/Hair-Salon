@@ -91,4 +91,21 @@ jQuery(document).ready(function() {
          form.submit();
       }
    });
+
+   $("form[name='updateClient']").validate({
+      rules: {
+         clientFirstName: "required",
+         clientLastName: "required",
+         clientPhoneNo: "required"
+      },
+
+      messages: {
+         clientFirstName: "please update client's first name.",
+         clientLastName: "please update client's last name.",
+         clientPhoneNo: "please update client's phone number."
+      },
+      submitHandler: function(form) {
+         form.submit();
+      }
+   });
 });
