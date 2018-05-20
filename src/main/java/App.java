@@ -126,5 +126,17 @@ public class App {
          model.put("template", "templates/updateClient.vtl");
          return new ModelAndView(model, layout);
       }, new VelocityTemplateEngine());
+
+      post("/updateClient/:id", (request, response) -> {
+         Map<String, Object> model = new HashMap<String, Object>();
+         Client client = Client.find(Integer.parseInt(request.params(":id")));
+         String client_first_name = request.queryParams("clientFirstName");
+         String client_last_name = request.queryParams("clientLastName");
+         String client_phone_no = request.queryParams("clientPhoneNo");
+         client.update(client_first_name,client_last_name,client_phone_no);
+         String url = String.format("/updateClient/%d", client.getClientId());
+         response.redirect(url);
+         return new ModelAndView(model, layout);
+      }, new VelocityTemplateEngine());
   	}
 }
