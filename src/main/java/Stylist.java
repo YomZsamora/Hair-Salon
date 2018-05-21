@@ -50,6 +50,13 @@ public class Stylist {
       return id;
    }
 
+   public static List<Stylist> all() {
+      String sql = "SELECT id, first_name, last_name, age, phone_no, department FROM stylists";
+         try(Connection con = DB.sql2o.open()) {
+         return con.createQuery(sql).executeAndFetch(Stylist.class);
+      }
+   }
+
    public List<Client> getStylistClients() {
       try(Connection con = DB.sql2o.open()) {
          String sql = "SELECT * FROM clients where stylistid=:id";
@@ -66,13 +73,6 @@ public class Stylist {
          .addParameter("id", id)
          .executeAndFetchFirst(Stylist.class);
          return stylist;
-      }
-   }
-
-   public static List<Stylist> all() {
-      String sql = "SELECT id, first_name, last_name, age, phone_no, department FROM stylists";
-         try(Connection con = DB.sql2o.open()) {
-         return con.createQuery(sql).executeAndFetch(Stylist.class);
       }
    }
 
@@ -112,14 +112,4 @@ public class Stylist {
          .executeUpdate();
       }
    }
-
-   // public int getStylistNoOfClients() {
-   //    try(Connection con = DB.sql2o.open()) {
-   //       Statement s = conn.createStatement();
-   //       ResultSet r = s.executeQuery("SELECT COUNT(*) AS rowcount FROM clients WHERE id = :id;");
-   //       r.next();
-   //       int count = r.getInt("rowcount") ;
-   //       r.close() ;
-   //    }
-   // }
 }

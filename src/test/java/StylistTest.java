@@ -6,7 +6,7 @@ public class StylistTest {
 
    @Before
    public void setUp() {
-      DB.sql2o = new Sql2o("jdbc:postgresql://localhost:5432/hair_salon", null, null);
+      DB.sql2o = new Sql2o("jdbc:postgresql://localhost:5432/hair_salon_test", "yomz", "@dZumi0991");
    }
 
    @After
@@ -19,5 +19,67 @@ public class StylistTest {
       }
    }
 
-   
+   @Test
+   public void save_savesIntoDatabase_true() {
+      Stylist myStylist = new Stylist("Susan", "Mutheu", 23, "0721560004", "Hair Coloring");
+      myStylist.save();
+      assertTrue(Stylist.all().get(0).equals(myStylist));
+   }
+
+   @Test
+   public void find_returnsCategoryWithSameId_secondCategory() {
+      Stylist firstStylist = new Stylist("Susan", "Mutheu", 23, "0721560004", "Hair Coloring");
+      firstStylist.save();
+      Stylist secondStylist = new Stylist("Peter", "Savali", 29, "0701025463", "Hair Cutting");
+      secondStylist.save();
+      assertEquals(Stylist.find(secondStylist.getStylistId()), secondStylist);
+   }
+
+   @Test
+   public void all_returnsAllInstancesOfStylist_true() {
+      Stylist firstStylist = new Stylist("Susan", "Mutheu", 23, "0721560004", "Hair Coloring");
+      firstStylist.save();
+      Stylist secondStylist = new Stylist("Peter", "Savali", 29, "0701025463", "Hair Cutting");
+      secondStylist.save();
+      assertEquals(true, Stylist.all().get(0).equals(firstStylist));
+      assertEquals(true, Stylist.all().get(1).equals(secondStylist));
+   }
+
+   @Test
+   public void save_assignsIdToObject() {
+      Stylist myStylist = new Stylist("Susan", "Mutheu", 23, "0721560004", "Hair Coloring");
+      myStylist.save();
+      Stylist savedStylist = Stylist.all().get(0);
+      assertEquals(myStylist.getId(), savedStylist.getStylistId());
+   }
+
+   @Test
+   public void getTasks_retrievesALlTasksFromDatabase_tasksList() {
+      Stylist myStylist = new Stylist("Susan", "Mutheu", 23, "0721560004", "Hair Coloring");
+      myStylist.save();
+      Client firstClient = new Client(("Cynthia", "Miguna", "0722510036", myStylist.getStylistId()));
+      firstfirstClientTask.save();
+      Client secondClient = new Client(("Hildah", "Mulwa", "0770256984", myStylist.getStylistId()));
+      secondClient.save();
+      Client[] clients = new Client[] { firstClient, secondClient };
+      assertTrue(myStylist.getStylistClients().containsAll(Arrays.asList(clients)));
+   }
+
+   @Test
+   public void getStylistId_stylistInstantiateWithAnId_1() {
+      Stylist myStylist = new Stylist("Susan", "Mutheu", 23, "0721560004", "Hair Coloring");
+      myStylist.save();
+      assertTrue(myStylist.getStylistId() > 0);
+   }
+
+   @Override
+   public boolean equals(Object otherStylist) {
+      if (!(otherStylist instanceof Stylist)) {
+         return false;
+      } else {
+         Stylist newStylist = (Stylist) otherStylist;
+         return this.getStylistFirstName().equals(newStylist.getStylistFirstName()) &&
+                this.getStylistId().equals(newStylist.getStylistId());
+      }
+   }   
 }
