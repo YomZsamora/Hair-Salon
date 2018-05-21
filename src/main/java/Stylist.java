@@ -112,4 +112,14 @@ public class Stylist {
          .executeUpdate();
       }
    }
+
+   // public int getStylistNoOfClients() {
+   //    try(Connection con = DB.sql2o.open()) {
+   //       Statement s = conn.createStatement();
+   //       ResultSet r = s.executeQuery("SELECT COUNT(*) AS rowcount FROM clients WHERE id = :id;");
+   //       r.next();
+   //       int count = r.getInt("rowcount") ;
+   //       r.close() ;
+   //    }
+   // }
 }
