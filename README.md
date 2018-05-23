@@ -28,9 +28,4 @@ This application generally manages the basic operations of a hair salon. The own
 - Run `gradle run` command.
 - Navigate to `http://localhost:4567/` in your browser.
 
-##### DB Setup
-Before 
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
