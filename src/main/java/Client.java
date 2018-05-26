@@ -44,6 +44,13 @@ public class Client {
       return id;
    }
 
+   public static List<Client> all() {
+      String sql = "SELECT id, client_first_name, client_last_name, client_phone_no, stylistid FROM clients";
+         try(Connection con = DB.sql2o.open()) {
+         return con.createQuery(sql).executeAndFetch(Client.class);
+      }
+   }
+
    public static Client find(int id) {
       try(Connection con = DB.sql2o.open()) {
          String sql = "SELECT * FROM clients where id=:id";
@@ -85,6 +92,18 @@ public class Client {
       con.createQuery(sql)
          .addParameter("id", id)
          .executeUpdate();
+      }
+   }
+
+   @Override
+   public boolean equals(Object otherClient) {
+      if (!(otherClient instanceof Client)) {
+         return false;
+      } else {
+         Client newClient = (Client) otherClient;
+         return this.getClientFirstName().equals(newClient.getClientFirstName()) &&
+         this.getClientLastName().equals(newClient.getClientLastName()) &&
+         this.getClientPhoneNo().equals(newClient.getClientPhoneNo());
       }
    }
 }

@@ -50,16 +50,14 @@ public class StylistTest {
       Stylist myStylist = new Stylist("Susan", "Mutheu", 23, "0721560004", "Hair Coloring");
       myStylist.save();
       Stylist savedStylist = Stylist.all().get(0);
-      assertEquals(myStylist.getId(), savedStylist.getStylistId());
+      assertEquals(myStylist.getStylistId(), savedStylist.getStylistId());
    }
 
    @Test
    public void getTasks_retrievesALlTasksFromDatabase_tasksList() {
-      Stylist myStylist = new Stylist("Susan", "Mutheu", 23, "0721560004", "Hair Coloring");
-      myStylist.save();
-      Client firstClient = new Client(("Cynthia", "Miguna", "0722510036", myStylist.getStylistId()));
+      Client firstClient = new Client("Cynthia", "Miguna", "0722510036", myStylist.getStylistId());
       firstfirstClientTask.save();
-      Client secondClient = new Client(("Hildah", "Mulwa", "0770256984", myStylist.getStylistId()));
+      Client secondClient = new Client("Hildah", "Mulwa", "0770256984", myStylist.getStylistId());
       secondClient.save();
       Client[] clients = new Client[] { firstClient, secondClient };
       assertTrue(myStylist.getStylistClients().containsAll(Arrays.asList(clients)));

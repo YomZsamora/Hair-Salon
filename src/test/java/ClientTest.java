@@ -20,6 +20,13 @@ public class ClientTest {
    }
 
    @Test
+   public void equals_returnsTrueIfDescriptionsAretheSame() {
+      Client firstClient = new Client("Susan", "Mutheu", "0711400512", 1);
+      Client secondClient = new Client("Susan", "Mutheu", "0711400512", 1);
+      assertTrue(firstClient.equals(secondClient));
+   }
+
+   @Test
    public void save_savesIntoDatabase_true() {
       Client myClient = new Client("Susan", "Mutheu", "0711400512", 1);
       myClient.save();
@@ -45,18 +52,10 @@ public class ClientTest {
 
    @Test
    public void getClientId_clientInstantiateWithAnId_1() {
-      Client myClient = new Client("Susan", "Mutheu", 23, "0721560004", "Hair Coloring");
+      Client myClient = new Client("Susan", "Mutheu", "0721560004", 1);
       myClient.save();
       assertTrue(myClient.getClientId() > 0);
    }
 
-   @Override
-   public boolean equals(Object otherClient) {
-      if (!(otherClient instanceof Client)) {
-         return false;
-      } else {
-         Client newClient = (Client) otherClient;
-         return this.getClientId().equals(newClient.getClientId());
-      }
-   }   
+      
 }
