@@ -1,6 +1,7 @@
 import org.sql2o.*;
 import org.junit.*;
 import static org.junit.Assert.*;
+import java.util.Arrays;
 
 public class StylistTest {
 
@@ -54,9 +55,11 @@ public class StylistTest {
    }
 
    @Test
-   public void getTasks_retrievesALlTasksFromDatabase_tasksList() {
+   public void getClients_retrievesALlClientssFromDatabase_clientsList() {
+      Stylist myStylist = new Stylist("Susan", "Mutheu", 23, "0721560004", "Hair Coloring");
+      myStylist.save();
       Client firstClient = new Client("Cynthia", "Miguna", "0722510036", myStylist.getStylistId());
-      firstfirstClientTask.save();
+      firstClient.save();
       Client secondClient = new Client("Hildah", "Mulwa", "0770256984", myStylist.getStylistId());
       secondClient.save();
       Client[] clients = new Client[] { firstClient, secondClient };
@@ -70,14 +73,5 @@ public class StylistTest {
       assertTrue(myStylist.getStylistId() > 0);
    }
 
-   @Override
-   public boolean equals(Object otherStylist) {
-      if (!(otherStylist instanceof Stylist)) {
-         return false;
-      } else {
-         Stylist newStylist = (Stylist) otherStylist;
-         return this.getStylistFirstName().equals(newStylist.getStylistFirstName()) &&
-                this.getStylistId().equals(newStylist.getStylistId());
-      }
-   }   
+      
 }

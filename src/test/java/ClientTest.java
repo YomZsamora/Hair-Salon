@@ -12,10 +12,10 @@ public class ClientTest {
    @After
    public void tearDown() {
       try(Connection con = DB.sql2o.open()) {
-         String deleteTasksQuery = "DELETE FROM clients *;";
-         String deleteCategoriesQuery = "DELETE FROM stylists *;";
-         con.createQuery(deleteTasksQuery).executeUpdate();
-         con.createQuery(deleteCategoriesQuery).executeUpdate();
+         String deleteClientsQuery = "DELETE FROM clients *;";
+         String deleteStylistsQuery = "DELETE FROM stylists *;";
+         con.createQuery(deleteClientsQuery).executeUpdate();
+         con.createQuery(deleteStylistsQuery).executeUpdate();
       }
    }
 
@@ -48,13 +48,15 @@ public class ClientTest {
       Client myClient = new Client("Susan", "Mutheu", "0711400512", 1);
       myClient.save();
       assertTrue(myClient.getClientId() > 0);
-   }   
+   }
 
    @Test
-   public void getClientId_clientInstantiateWithAnId_1() {
-      Client myClient = new Client("Susan", "Mutheu", "0721560004", 1);
-      myClient.save();
-      assertTrue(myClient.getClientId() > 0);
+   public void find_returnsClientWithSameId_secondClient() {
+      Client firstClient = new Client("Susan", "Mutheu", "0711400512", 1);
+      firstClient.save();
+      Client secondClient = new Client("Peter", "Savali", "0711568974", 1);
+      secondClient.save();
+      assertEquals(Client.find(secondClient.getClientId()), secondClient);
    }
 
       
