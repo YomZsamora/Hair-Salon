@@ -1,3 +1,4 @@
+import java.time.LocalDateTime;
 import org.sql2o.*;
 import org.junit.*;
 import static org.junit.Assert.*;
@@ -20,7 +21,7 @@ public class ClientTest {
    }
 
    @Test
-   public void equals_returnsTrueIfDescriptionsAretheSame() {
+   public void equals_returnsTrueIfClientsAretheSame() {
       Client firstClient = new Client("Susan", "Mutheu", "0711400512", 1);
       Client secondClient = new Client("Susan", "Mutheu", "0711400512", 1);
       assertTrue(firstClient.equals(secondClient));
@@ -31,6 +32,14 @@ public class ClientTest {
       Client myClient = new Client("Susan", "Mutheu", "0711400512", 1);
       myClient.save();
       assertTrue(Client.all().get(0).equals(myClient));
+   }
+
+   @Test
+   public void getClientStylistId_returnsTheClientsStylistId() {
+      Client myClient = new Client("Susan", "Mutheu", "0711400512", 1);
+      myClient.save();
+      int stylistId = myClient.getClientStylistId();
+      assertEquals(1, stylistId);
    }
 
    @Test
@@ -63,9 +72,22 @@ public class ClientTest {
    public void update_updatesClientDetails_true() {
       Client myClient = new Client("Susan", "Mutheu", "0711400512", 1);
       myClient.save();
-      myClient.update("Maureen", "Kiplimo", "0711497888");
-      assertEquals(true, Client.all().get(0).equals(myClient));
+      assertTrue(Client.all().get(0).equals(myClient));
    }
 
+   @Test
+   public void getClientCreatedAt_returnsTheClientCreatedAt() {
+      Client myClient = new Client("Susan", "Mutheu", "0711400512", 1);
+      LocalDateTime createdAt = myClient.getClientCreatedAt();
+      assertEquals(createdAt, myClient.getClientCreatedAt());
+   }
+
+   // @Test
+   // public void delete_deletesClientFromStylist() {
+   //    Client myClient = new Client("Susan", "Mutheu", "0711400512", 1);
+   //    myClient.save();
+   //    myClient.delete();
+   //    assertNull(Client.all().get(0));
+   // }
       
 }

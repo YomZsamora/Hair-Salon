@@ -102,7 +102,8 @@ public class Client {
       } else {
          Client newClient = (Client) otherClient;
          return this.getClientFirstName().equals(newClient.getClientFirstName()) &&
-         this.getClientLastName() == newClient.getClientLastName();
+         this.getClientLastName() == newClient.getClientLastName() &&
+         this.getClientPhoneNo() == newClient.getClientPhoneNo();
       }
    }
 }
