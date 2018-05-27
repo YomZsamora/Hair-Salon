@@ -82,12 +82,13 @@ public class ClientTest {
       assertEquals(createdAt, myClient.getClientCreatedAt());
    }
 
-   // @Test
-   // public void delete_deletesClientFromStylist() {
-   //    Client myClient = new Client("Susan", "Mutheu", "0711400512", 1);
-   //    myClient.save();
-   //    myClient.delete();
-   //    assertNull(Client.all().get(0));
-   // }
+   @Test
+   public void delete_deletesClientFromStylist() {
+      Client myClient = new Client("Susan", "Mutheu", "0711400512", 1);
+      myClient.save();
+      myClient.find(myClient.getClientId());
+      myClient.delete();
+      assertEquals(false, Client.all().contains(myClient));
+   }
       
 }
