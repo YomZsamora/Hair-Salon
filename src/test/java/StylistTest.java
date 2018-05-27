@@ -2,6 +2,7 @@ import org.sql2o.*;
 import org.junit.*;
 import static org.junit.Assert.*;
 import java.util.Arrays;
+import java.time.LocalDateTime;
 
 public class StylistTest {
 
@@ -71,6 +72,15 @@ public class StylistTest {
       Stylist myStylist = new Stylist("Susan", "Mutheu", 23, "0721560004", "Hair Coloring");
       myStylist.save();
       assertTrue(myStylist.getStylistId() > 0);
+   }
+
+   @Test
+   public void delete_deletesStylist() {
+      Stylist myStylist = new Stylist("Susan", "Mutheu", 23, "0721560004", "Hair Coloring");
+      myStylist.save();
+      myStylist.find(myStylist.getStylistId());
+      myStylist.delete();
+      assertEquals(false, Stylist.all().contains(myStylist));
    }
 
       
