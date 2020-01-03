@@ -58,16 +58,15 @@ This application generally manages the basic operations of a hair salon. The own
    * To run the application, in your terminal:
 
     1. Clone or download the Repository
-    2. cd into directory then run `gradle run` command on the terminnal
-    3. Database Setup: (Remember to recreate the database, tables and columns accordingly).
+    2. Database Setup: (Remember to recreate the database, tables and columns accordingly).
 		- In PSQL:
 			- CREATE DATABASE hair_salon;
 			- CREATE TABLE stylists (id serial PRIMARY KEY, first_name varchar, last_name varchar, age integer, phone_no varchar, department varchar);
 			- CREATE TABLE clients (id serial PRIMARY KEY, client_first_name varchar, client_last_name varchar, client_phone_no varchar);
 			- ALTER TABLE clients ADD stylistId int;
-    4. Open terminal command line then navigate to the root folder of the application.
-    5. Run `gradle run` command.
-    6. Navigate to `http://localhost:4567/` in your browser.
+    3. Open terminal command line then navigate to the root folder of the application.
+    4. Run `gradle run` command.
+    5. Navigate to `http://localhost:4567/` in your browser.
   
 
 ### Development
