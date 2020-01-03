@@ -35,7 +35,7 @@ This application generally manages the basic operations of a hair salon. The own
    - INPUT:"go to all stylists page"
    - INPUT:"select a stylist and click on view clients link"
    - INPUT:"select a client and click on delete client link"
-   
+
 
 ## Prerequisites
 
@@ -101,34 +101,5 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-
-
-
-
-
-
-##### Technologies Used
-- Java
-- Spark
-- JUnit
-- Velocity Template Engine
-
-##### Prerequisites
-- Basic Git knowledge, including an installed version of Git.
-- Your application must run on the OpenJDK version 6, 7 or 8.
-
-##### Installation
-
-- Clone this repository to a location in your file system.
-- Database Setup: (Remember to recreate the database, tables and columns accordingly).
-	- In PSQL:
-		- CREATE DATABASE hair_salon;
-		- CREATE TABLE stylists (id serial PRIMARY KEY, first_name varchar, last_name varchar, age integer, phone_no varchar, department varchar);
-		- CREATE TABLE clients (id serial PRIMARY KEY, client_first_name varchar, client_last_name varchar, client_phone_no varchar);
-		- ALTER TABLE clients ADD stylistId int;
-
-- Open terminal command line then navigate to the root folder of the application.
-- Run `gradle run` command.
-- Navigate to `http://localhost:4567/` in your browser.
 
 
